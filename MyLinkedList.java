@@ -8,12 +8,16 @@ public class MyLinkedList {
     this.end = end;
   }
   public int size() {
-
+    return size;
   }
   public boolean add(int value) {
-
+    Node nEnd = new Node (value, end, null);
+    return true;
   }
   public String toString() {
-
+    String output = "[";
+    for (Node current = start; current != null) {
+      
+    }
   }
 }
