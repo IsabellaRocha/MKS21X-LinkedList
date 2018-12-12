@@ -6,4 +6,10 @@ public class Node {
     this.data = data;
     this.next = next;
   }
+  public void changeNext(Node next) {
+    this.next = next;
+  }
+  public void changeData(int data) {
+    this.data = data;
+  }
 }

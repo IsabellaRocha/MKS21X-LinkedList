@@ -2,9 +2,10 @@ public class MyLinkedList {
   private int size;
   private Node start,end;
 
-  public MyLinkedList() {
-    start = new Node(null, end);
-    end = new Node(start, null);
+  public MyLinkedList(int size, Node start, Node end) {
+    this.size = size;
+    this.start = start;
+    this.end = end;
   }
   public int size() {
 
