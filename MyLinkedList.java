@@ -16,8 +16,12 @@ public class MyLinkedList {
   }
   public String toString() {
     String output = "[";
-    for (Node current = start; current != null) {
-      
+    Node current = start;
+    while (current.getNext() != null) {
+      output += current + ", ";
+      current = current.getNext();
     }
+    output += end + "]";
+    return output;
   }
 }
