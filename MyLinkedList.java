@@ -89,4 +89,8 @@ public class MyLinkedList {
     nCurrent.setPrev(newCurrent);
     return og;
   }
+  public boolean remove(Integer value) {
+    remove(indexOf(value));
+    return true;
+  }
 }
