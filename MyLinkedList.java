@@ -32,6 +32,13 @@ public class MyLinkedList {
     }
     return current.getData();
   }
+  private Node getNthNode(int idx) {
+    Node current = start;
+    for (int x = 0; x < idx; x++) {
+      current = current.next();
+    }
+    return current;
+  }
   public Integer set(int idx, Integer value) {
     Node current = start;
     for (int x = 0; x < idx; x++) {
