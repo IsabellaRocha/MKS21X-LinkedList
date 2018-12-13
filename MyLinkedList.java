@@ -51,4 +51,27 @@ public class MyLinkedList {
     }
     return false;
   }
+  public int indexOf(Integer value) {
+    Node current = start;
+    for (int idx = 0; idx < size; idx++) {
+      if (current.getValue() == value) {
+        return idx;
+      }
+      current = current.next();
+    }
+    return -1;
+  }
+  public void add(int idx, Integer value) {
+    Node current = start;
+    for (int x = 0; x < idx - 1; x++) {
+      current = current.next();
+    }
+    current = Node(current.getData(), current.getPrev(), value);
+    Integer prev = current.getData();
+    Integer next = current.next().next().getData();
+    current = current.next();
+    current = new Node(value, prev, next);
+    current = current.next();
+    current = Node(current.getData(), value, current.next());
+  }
 }
