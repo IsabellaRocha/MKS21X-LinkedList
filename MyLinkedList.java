@@ -15,6 +15,7 @@ public class MyLinkedList {
   }
   public boolean add(Integer value) {
     Node newEnd = new Node(value, null, end);
+    end.setNext(newEnd);
     end = newEnd;
     size++;
     return true;
