@@ -7,12 +7,16 @@ public class MyLinkedList {
     this.start = start;
     this.end = end;
   }
+  public MyLinkedList() {
+    size = 0;
+  }
   public int size() {
     return size;
   }
   public boolean add(Integer value) {
     Node newEnd = new Node(value, null, end);
     end = newEnd;
+    size++;
     return true;
   }
   public String toString() {
@@ -26,6 +30,9 @@ public class MyLinkedList {
     return output;
   }
   public Integer get(int idx) {
+    if (idx < 0 || idx >= size) {
+      throw new IndexOutOfBoundsException();
+    }
     Node current = start;
     for (int x = 0; x < idx; x++) {
       current = current.next();
@@ -40,6 +47,9 @@ public class MyLinkedList {
     return current;
   }
   public Integer set(int idx, Integer value) {
+    if (idx < 0 || idx >= size) {
+      throw new IndexOutOfBoundsException();
+    }
     Node current = start;
     for (int x = 0; x < idx; x++) {
       current = current.next();
@@ -82,6 +92,9 @@ public class MyLinkedList {
 //    current = new Node(current.getData(), value, current.next());
 //  }
   public Integer remove(int idx) {
+    if (idx < 0 || idx >= size) {
+      throw new IndexOutOfBoundsException();
+    }
     Node current = start;
     for (int x = 0; x < idx; x++) {
       current = current.next();
@@ -94,6 +107,7 @@ public class MyLinkedList {
     newCurrent.setNext(newCurrent.next().next());
     Node nCurrent = newCurrent.next();
     nCurrent.setPrev(newCurrent);
+    size--;
     return og;
   }
   public boolean remove(Integer value) {
