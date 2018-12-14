@@ -1,6 +1,7 @@
 public class MyLinkedList {
   private int size;
-  private Node start,end;
+  private Node start;
+  private Node end;
 
   public MyLinkedList(int size, Node start, Node end) {
     this.size = size;
@@ -8,26 +9,35 @@ public class MyLinkedList {
     this.end = end;
   }
   public MyLinkedList() {
-    size = 0;
   }
   public int size() {
     return size;
   }
   public boolean add(Integer value) {
-    Node newEnd = new Node(value, null, end);
-    end.setNext(newEnd);
-    end = newEnd;
+    if (end != null) {
+      Node newEnd = new Node(value, null, end);
+      end.setNext(newEnd);
+      end = newEnd;
+    }
+    else {
+      end = new Node(value, null, end);
+    }
     size++;
     return true;
   }
   public String toString() {
     String output = "[";
     Node current = start;
-    while (current.next() != null) {
+    while (current != null) {
       output += current + ", ";
       current = current.next();
     }
-    output += end + "]";
+    if (end == null) {
+      output +="]";
+    }
+    else {
+      output += end + "]";
+    }
     return output;
   }
   public Integer get(int idx) {
@@ -81,12 +91,10 @@ public class MyLinkedList {
   }
 //  public void add(int idx, Integer value) {
 //    Node current = start;
-//    for (int x = 0; x < idx - 1; x++) {
+//    for (int x = 0; x < idx; x++) {
 //      current = current.next();
 //    }
-//    current = new Node(current.getData(), current.prev(), value);
-//    Integer prev = current.getData();
-//    Integer next = current.next().next().getData();
+//    current = new Node(value, );
 //    current = current.next();
 //    current = new Node(value, prev, next);
 //    current = current.next();

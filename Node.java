@@ -7,6 +7,8 @@ public class Node {
     this.next = next;
     this.prev = prev;
   }
+  public Node() {
+  }
   public void setNext(Node next) {
     this.next = next;
   }
