@@ -39,8 +39,11 @@ public class Driver {
 
         //Step Six: Testing the Contains Method
         System.out.println("Checking Containment Test:\n");
-        System.out.println(list.contains(new Integer(999)));
+        System.out.println(list.contains(999));
         System.out.println("This should print: false");
+        System.out.println("Checking Containment Test:\n");
+        System.out.println(list.contains(4));
+        System.out.println("This should print: true");
 
         //Step Seven: Testing the Size Method
         System.out.println("Size Test: \n");

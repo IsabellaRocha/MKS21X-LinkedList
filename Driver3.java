@@ -42,7 +42,8 @@ public class Driver3 {
         System.out.println("#####################################");
         System.out.println("##Remove a Value by its Value Test:##");
         System.out.println("#####################################");
-        list.remove(new Integer(9));
+        Integer x = 9;
+        list.remove(x);
         System.out.println(list);
         System.out.println("This should print: \"[0, 1, 2, 3, 4, 5, 6, 7, 8]\"");
 
@@ -50,7 +51,7 @@ public class Driver3 {
         System.out.println("##############################");
         System.out.println("##Checking Containment Test:##");
         System.out.println("##############################");
-        System.out.println(list.contains(new Integer(999)));
+        System.out.println(list.contains(999));
         System.out.println("This should print: false");
 
         //Step Seven: Testing the Size Method
