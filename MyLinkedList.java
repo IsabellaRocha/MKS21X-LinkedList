@@ -71,12 +71,12 @@ public class MyLinkedList {
       current = current.next();
     }
     Integer og = current.getData();
-    current = new Node(value, current.next(), current.prev());
+    current.setData(value);
     return og;
   }
   public boolean contains(Integer value) {
     Node current = start;
-    while (current.next() != null) {
+    while (current != null) {
       if (current.getData() == value) {
         return true;
       }
@@ -84,6 +84,12 @@ public class MyLinkedList {
     }
     return false;
   }
+//  public boolean contains(Integer value) {
+//    if (indexOf(value) == -1) {
+//      return false;
+//    }
+//    return true;
+//  }
   public int indexOf(Integer value) {
     Node current = start;
     for (int idx = 0; idx < size; idx++) {
@@ -99,6 +105,10 @@ public class MyLinkedList {
       throw new IndexOutOfBoundsException();
     }
     Node current = start;
+    if (idx == 0) {
+      current = new Node(value, start, null);
+      start = current;
+    }
     for (int x = 0; x < idx - 1; x++) {
       current = current.next();
     }
@@ -111,6 +121,12 @@ public class MyLinkedList {
   public Integer remove(int idx) {
     if (idx < 0 || idx >= size) {
       throw new IndexOutOfBoundsException();
+    }
+    if (idx == size - 1) {
+      int og = end.getData();
+      end = end.prev();
+      end.setNext(null);
+      return og;
     }
     Node current = start;
     for (int x = 0; x < idx; x++) {
@@ -126,10 +142,11 @@ public class MyLinkedList {
   public boolean remove(Integer value) {
     try {
       remove(indexOf(value));
+      size--;
+      return true;
     }
     catch(IndexOutOfBoundsException e) {
       return false;
     }
-    return true;
   }
 }
