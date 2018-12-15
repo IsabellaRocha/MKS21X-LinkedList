@@ -14,23 +14,28 @@ public class MyLinkedList {
     return size;
   }
   public boolean add(Integer value) {
-    if (end != null) {
+    if (size == 0) {
+      start = new Node(value, null, null);
+      end = start;
+      size++;
+      return true;
+    }
+    else {
       Node newEnd = new Node(value, null, end);
       end.setNext(newEnd);
       end = newEnd;
+      size++;
+      return true;
     }
-    else {
-      end = new Node(value, null, end);
-    }
-    size++;
-    return true;
   }
   public String toString() {
     String output = "[";
     Node current = start;
-    while (current != null) {
+    int idx = 0;
+    while (current != null && idx < size - 1) {
       output += current + ", ";
       current = current.next();
+      idx++;
     }
     if (end == null) {
       output +="]";
@@ -89,17 +94,20 @@ public class MyLinkedList {
     }
     return -1;
   }
-//  public void add(int idx, Integer value) {
-//    Node current = start;
-//    for (int x = 0; x < idx; x++) {
-//      current = current.next();
-//    }
-//    current = new Node(value, );
-//    current = current.next();
-//    current = new Node(value, prev, next);
-//    current = current.next();
-//    current = new Node(current.getData(), value, current.next());
-//  }
+  public void add(int idx, Integer value) {
+    if (idx < 0 || idx >= size) {
+      throw new IndexOutOfBoundsException();
+    }
+    Node current = start;
+    for (int x = 0; x < idx - 1; x++) {
+      current = current.next();
+    }
+    Node newNode = new Node(value, current.next(), current);
+    current.setNext(newNode);
+    current = current.next().next();
+    current.setPrev(newNode);
+    size++;
+  }
   public Integer remove(int idx) {
     if (idx < 0 || idx >= size) {
       throw new IndexOutOfBoundsException();

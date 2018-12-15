@@ -20,7 +20,7 @@ public class Driver {
 
         //Step Three: Adding a value to the middle
         System.out.println("Adding Values in the Middle Test:\n");
-  //      list.add(5, 999);
+        list.add(5, 999);
         System.out.println(list);
         System.out.println("This should print: \"[0, 1, 2, 3, 4, 999, 5, 6, 7, 8, 9]\"");
 
