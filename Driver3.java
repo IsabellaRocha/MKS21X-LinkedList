@@ -34,7 +34,7 @@ public class Driver3 {
         System.out.println("##########################");
         System.out.println("##Removing a Value Test:##");
         System.out.println("##########################");
-        list.remove(4);
+        list.remove(5);
         System.out.println(list);
         System.out.println("This should print: \"[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]\"");
 
