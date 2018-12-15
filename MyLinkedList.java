@@ -117,18 +117,19 @@ public class MyLinkedList {
       current = current.next();
     }
     Integer og = current.getData();
-    Node newCurrent = start;
-    for (int x = 0; x < idx - 1; x++) {
-      newCurrent = newCurrent.next();
-    }
-    newCurrent.setNext(newCurrent.next().next());
-    Node nCurrent = newCurrent.next();
-    nCurrent.setPrev(newCurrent);
+    current.setNext(current.next().next());
+    Node newCurrent = current.next().next();
+    newCurrent.setPrev(current);
     size--;
     return og;
   }
   public boolean remove(Integer value) {
-    remove(indexOf(value));
+    try {
+      remove(indexOf(value));
+    }
+    catch(IndexOutOfBoundsException e) {
+      return false;
+    }
     return true;
   }
 }
