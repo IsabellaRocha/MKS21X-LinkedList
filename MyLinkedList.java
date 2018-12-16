@@ -145,7 +145,7 @@ public class MyLinkedList {
     }
     Integer og = current.next().getData();
     current.setNext(current.next().next());
-    Node newCurrent = current.next().next();
+    Node newCurrent = current.next();
     newCurrent.setPrev(current);
     size--;
     return og;
