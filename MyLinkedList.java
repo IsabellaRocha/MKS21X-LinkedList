@@ -95,26 +95,42 @@ public class MyLinkedList {
     return -1;
   }
   public void add(int idx, Integer value) {
-    if (idx < 0 || idx >= size) {
+    if (idx < 0 || idx > size) {
       throw new IndexOutOfBoundsException();
     }
     Node current = start;
     if (idx == 0) {
       current = new Node(value, start, null);
       start = current;
+      size++;
     }
-    for (int x = 0; x < idx - 1; x++) {
-      current = current.next();
+    else if (idx == size) {
+      current = new Node(value, null, end);
+      end.setNext(current);
+      end = current;
+      size++;
     }
-    Node newNode = new Node(value, current.next(), current);
-    current.setNext(newNode);
-    current = current.next().next();
-    current.setPrev(newNode);
-    size++;
+    else {
+      for (int x = 0; x < idx - 1; x++) {
+        current = current.next();
+      }
+      Node newNode = new Node(value, current.next(), current);
+      current.setNext(newNode);
+      current = current.next().next();
+      current.setPrev(newNode);
+      size++;
+    }
   }
   public Integer remove(int idx) {
     if (idx < 0 || idx >= size) {
       throw new IndexOutOfBoundsException();
+    }
+    if (idx == 0) {
+      Integer og = start.getData();
+      start = start.next();
+      start.setPrev(null);
+      size --;
+      return og;
     }
     if (idx == size - 1) {
       Integer og = end.getData();
