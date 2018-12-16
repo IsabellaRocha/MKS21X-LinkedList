@@ -33,7 +33,7 @@ public class Driver {
         //Step Five: Remove a value from the list by value
         System.out.println("Remove a Value by its Value Test:\n");
         Integer x = 9;
-        list.remove(x);
+        list.remove(Integer.valueOf(9));
         System.out.println(list);
         System.out.println("This should print: \"[0, 1, 2, 3, 4, 5, 6, 7, 8]\"");
 
