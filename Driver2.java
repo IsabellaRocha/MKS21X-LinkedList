@@ -99,7 +99,7 @@ public class Driver2 {
       System.out.println(e);
     }
     Integer num = 11;
-    System.out.println("Removing by value, trying to remove 11, should print true: " + list.remove(Integer.valueOf(11)));
+    System.out.println("Removing by value, trying to remove 11, should print true: " + list.remove(num));
     System.out.println("Current list: " + list);
     num = 100;
     System.out.println("Trying to remove value 100, should print false: " + list.remove(num));
