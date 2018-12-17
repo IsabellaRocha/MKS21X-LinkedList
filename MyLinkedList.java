@@ -157,7 +157,7 @@ public class MyLinkedList {
     }
     return false;
   }
-  public String toStringDebug() {
+  public String toStringDebug() { //Prints backwards for testing
     String output = "[";
     Node current = end;
     int idx = size - 1;
@@ -173,5 +173,13 @@ public class MyLinkedList {
       output += start + "]";
     }
     return output;
+  }
+  public void extend(MyLinkedList other) {
+    this.end.setNext(other.start.prev());
+    end = other.end;
+    other.start = new Node (0, null, null);
+    other.end = new Node (0, null, null);
+    this.size = this.size() + other.size();
+    other.size = 0;
   }
 }
