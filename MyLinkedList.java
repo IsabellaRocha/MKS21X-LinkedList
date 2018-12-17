@@ -157,4 +157,21 @@ public class MyLinkedList {
     }
     return false;
   }
+  public String toStringDebug() {
+    String output = "[";
+    Node current = end;
+    int idx = size - 1;
+    while (current != null && idx > 0) {
+      output += current + ", ";
+      current = current.prev();
+      idx--;
+    }
+    if (start == null) {
+      output +="]";
+    }
+    else {
+      output += start + "]";
+    }
+    return output;
+  }
 }
