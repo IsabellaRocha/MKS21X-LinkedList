@@ -175,10 +175,10 @@ public class MyLinkedList {
     return output;
   }
   public void extend(MyLinkedList other) {
-    this.end.setNext(other.start.prev());
-    end = other.end;
-    other.start = new Node (0, null, null);
-    other.end = new Node (0, null, null);
+    this.end.setNext(other.start);
+    this.end = other.end;
+    other.start = null;
+    other.end = null;
     this.size = this.size() + other.size();
     other.size = 0;
   }

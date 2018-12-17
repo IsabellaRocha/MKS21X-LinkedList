@@ -6,6 +6,7 @@ public class Driver {
         //Step One: Creating a valid Instance
         System.out.println("New Instance Test:\n");
         MyLinkedList list = new MyLinkedList();
+        MyLinkedList list2 = new MyLinkedList();
         System.out.println(list);
         System.out.println("This should print: \"[]\"\n");
 
@@ -13,6 +14,7 @@ public class Driver {
         System.out.println("Adding Values Test:\n");
         for(int i = 0; i < 10; i++) {
             list.add(i);
+            list2.add(i);
             //System.out.println(list.size()); <- Debugging
         }
         System.out.println(list);
@@ -59,6 +61,10 @@ public class Driver {
         System.out.println("Index of Value Test: \n");
         System.out.println(list.indexOf(4));
         System.out.println("This should print: 4");
+        System.out.println("Concatenating lists \n");
+        list.extend(list2);
+        System.out.println(list);
+        System.out.println(list2);
 
     }
 }
