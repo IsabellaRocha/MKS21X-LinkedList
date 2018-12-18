@@ -65,6 +65,15 @@ public class Driver {
         list.extend(list2);
         System.out.println(list);
         System.out.println(list2);
-
+        MyLinkedList y = new MyLinkedList();
+        MyLinkedList z = new MyLinkedList();
+        for (int idx = 0; idx < 5; idx++) {
+          z.add(idx);
+        }
+        System.out.println(y);
+        System.out.println(z);
+        z.extend(y);
+        System.out.println(y);
+        System.out.println(z);
     }
 }
